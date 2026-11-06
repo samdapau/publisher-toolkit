@@ -237,8 +237,12 @@ def draw_preview(wrap_img, g, out_path):
         s = int(SAFE_IN * DPI)
         dashed_rect(d, [tx0 + s, ty0 + s, tx1 - s, ty1 - s], teal)
         tag(d, (tx0 + 14, ty0 + 14), name, f_tag, ink)
-        tag(d, (tx0 + s + 14, ty0 + s + 14), "TEXT SAFE ZONE (0.5 in)",
+        tag(d, (tx0 + s + 14, ty0 + s + 14),
+            "TEXT SAFE ZONE - keep text inside (0.5 in from trim)",
             f_tag, teal)
+        tag(d, (tx0 + 14, ty1 - 54),
+            "TRIM LINE - bleed 0.125 in (3.2 mm) outside this line",
+            f_tag, ink)
 
     # spine folds
     sx0, sx1 = g["spine_x"], g["spine_x"] + g["spine_px"]
